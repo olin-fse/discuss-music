@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"node ./bin/www\" \"cd client && elm-app start\""
+    "start": "concurrently \"node ./bin/www\" \"cd client && elm-app start\"",
+    "postinstall": "cd client && elm-app install"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
