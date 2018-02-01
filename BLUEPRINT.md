@@ -25,8 +25,8 @@ We are creating a platform for friends to share and discuss music online.  Group
 * Spotify API call for song info
 * Spotify/music player integration
 * Better commenting system
-* Time-stamped to parts of song
-* Ability to edit your comments
+  * Time-stamped to parts of song
+  * Ability to edit your comments
 
 **Stretch Goals** | If you end up having extra time, what do you want to accomplish?
 * Managing multiple groups
