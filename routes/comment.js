@@ -3,9 +3,8 @@ var router = express.Router();
 
 var CommentModel = require('../models/CommentModel');
 
-/* GET home page. */
+/* POST comment */
 router.post('/',  (req, res, next) => {
-	console.log(req.body)
 	CommentModel.insertToDb(req.body)
 	.then(() => {
 		res.sendStatus(200);
