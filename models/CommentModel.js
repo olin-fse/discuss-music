@@ -13,9 +13,9 @@ class CommentModel {
 	static insertToDb(jsonModel) {
 		const columns = ['user_id', 'song_id', 'group_id', 'body'];
 		const values = [{
-			user_id: jsonModel.user_id, 
-			song_id: jsonModel.song_id, 
-			group_id: jsonModel.group_id, 
+			user_id: jsonModel.userId,
+			song_id: jsonModel.songId,
+			group_id: jsonModel.groupId,
 			body: jsonModel.body
 		}];
 		const query = pgp.helpers.insert(values, columns, 'comments')
