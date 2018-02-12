@@ -8,7 +8,7 @@ router.post('/',  (req, res, next) => {
 	console.log(req.body)
 	CommentModel.insertToDb(req.body)
 	.then(() => {
-		res.status(200).json({message: "this worked?"});
+		res.sendStatus(200);
 	})
 	.catch(error => {
 		res.status(500).json({error: error.message});
