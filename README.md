@@ -17,4 +17,4 @@ GRANT ALL PRIVILEGES ON DATABASE muse TO muse;
 ```
 
 To create tables with the schema run the follwing in the terminal:
-`psql -d muse -f schema.sql`
+`psql -d muse -U muse -f schema.sql`
