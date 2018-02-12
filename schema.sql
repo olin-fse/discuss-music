@@ -22,7 +22,8 @@ CREATE TABLE comments (
 	created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	user_id INT NOT NULL,
 	group_id INT NOT NULL,
-	song_id INT NOT NULL
+	song_id INT NOT NULL,
+	body VARCHAR
 );
 
 CREATE TABLE songs (
