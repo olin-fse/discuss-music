@@ -6,7 +6,8 @@
     "start": "concurrently \"nodemon ./bin/www\" \"cd client && elm-app start\"",
     "postinstall": "cd client && elm-app install",
     "server": "nodemon ./bin/www",
-    "client": "cd client && elm-app start"
+    "client": "cd client && elm-app start",
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -17,10 +18,13 @@
     "dotenv": "~5.0.0",
     "elm-css": "~0.6.1",
     "express": "~4.15.5",
-    "jest": "~22.1.4",
     "morgan": "~1.9.0",
     "nodemon": "~1.14.12",
     "pg-promise": "~7.4.1",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "jest": "~22.2.2",
+    "supertest": "~3.0.0"
   }
 }
