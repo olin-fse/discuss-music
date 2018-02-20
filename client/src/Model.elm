@@ -1,5 +1,7 @@
 module Model exposing (..)
 
+import Msg exposing (..)
+
 type alias Model =
   { groupId : String
   , songId : String
@@ -8,6 +10,6 @@ type alias Model =
   }
 
 
-model : Model
-model =
-  Model "" "" "" ""
+init : (Model, Cmd Msg)
+init =
+  (Model "" "" "" "", Cmd.none)
