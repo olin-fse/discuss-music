@@ -30,26 +30,3 @@ submitForm model =
         Http.post "http://localhost:3001/comment" body Decode.string
             |> Http.send FormSubmitted
 
---sendSubmitForm : Http.Request String -> Cmd Msg
---sendSubmitForm = 
---    Http.send submitForm
-
---postComment : Model -> String -> Decode.Decoder String -> Http.Request String
---postComment model url =
---    let
---        body =
---            model
---                |> commentEncoder
---                |> Http.jsonBody
---    in
---        Http.post url body
-
---jsonBodyVar : Json.Decode.Value -> Http.Body
---jsonBodyVar value = 
---   {
---      groupId = value.GroupId 
---    , userId = value.UserId 
---    , body = value.Body
---    , songId = value.SongId
---    } 
-
