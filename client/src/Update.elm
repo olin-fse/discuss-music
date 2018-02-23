@@ -22,7 +22,7 @@ update msg model =
     OnSubmitForm ->
        ( model, submitForm model ) 
 
-    FormSubmitted (Ok string)->
+    FormSubmitted (Ok data)->
       ( model, Cmd.none )
 
     FormSubmitted (Err _)->

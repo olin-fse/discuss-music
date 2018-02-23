@@ -1,10 +1,11 @@
 module Commands exposing (..)
 
-import Http 
-import Model exposing (..)
-import Json.Decode as Decode exposing (int, string)
-import Json.Encode as Encode exposing (..)
+import Http
+import Model exposing (Model)
 import Msg exposing (..)
+import Json.Decode as Decode
+import Json.Encode as Encode
+import Dict exposing (Dict)
 
 url : String
 url =
@@ -19,6 +20,10 @@ commentEncoder model =
         , ( "songId", Encode.string model.songId )
         ]
 
+commentDecoder : Decode.Decoder (Dict String Int)
+commentDecoder =
+    Decode.dict Decode.int
+
 submitForm : Model -> Cmd Msg
 submitForm model =
     let
@@ -26,7 +31,6 @@ submitForm model =
             model
                 |> commentEncoder
                 |> Http.jsonBody
-    in 
-        Http.post "http://localhost:3001/comment" body Decode.string
+    in
+        Http.post url body commentDecoder
             |> Http.send FormSubmitted
-
