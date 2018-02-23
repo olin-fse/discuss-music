@@ -1,15 +1,13 @@
 module Model exposing (..)
 
+import Comment.Model
 import Msg exposing (..)
 
 type alias Model =
-  { groupId : String
-  , songId : String
-  , body : String
-  , userId: String
+  { comment : Comment.Model.Model
   }
 
 
 init : (Model, Cmd Msg)
 init =
-  (Model "" "" "" "", Cmd.none)
+  ({comment = Comment.Model.init}, Cmd.none)
