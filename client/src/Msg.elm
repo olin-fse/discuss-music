@@ -1,7 +1,7 @@
 module Msg exposing (..)
 
+import Dict exposing (Dict)
 import Http
---import Model exposing (..)
 
 type Msg
     = GroupId String
@@ -9,4 +9,4 @@ type Msg
     | Body String
     | SongId String
     | OnSubmitForm
-    | FormSubmitted (Result Http.Error String)
+    | FormSubmitted (Result Http.Error (Dict String Int))
