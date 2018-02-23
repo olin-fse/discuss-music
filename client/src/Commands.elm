@@ -1,11 +1,11 @@
 module Commands exposing (..)
 
-import Http 
-import Dict exposing (Dict)
-import Model exposing (..)
-import Json.Decode as Decode exposing (int, string, dict)
-import Json.Encode as Encode exposing (..)
+import Http
+import Model exposing (Model)
 import Msg exposing (..)
+import Json.Decode as Decode
+import Json.Encode as Encode
+import Dict exposing (Dict)
 
 url : String
 url =
@@ -32,5 +32,5 @@ submitForm model =
                 |> commentEncoder
                 |> Http.jsonBody
     in
-        Http.post "http://localhost:3001/comment" body commentDecoder
+        Http.post url body commentDecoder
             |> Http.send FormSubmitted
