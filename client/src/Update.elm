@@ -27,3 +27,12 @@ update msg model =
 
     FormSubmitted (Err _)->
       ( model, Cmd.none )
+
+    OnFetchComments response ->
+      ({ model | comments = response }, Cmd.none)
+
+    CommentsFetched (Ok data)->
+      ( model, Cmd.none )
+
+    CommentsFetched (Err _)->
+      ( model, Cmd.none )

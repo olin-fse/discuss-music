@@ -1,15 +1,21 @@
 module Model exposing (..)
 
-import Msg exposing (..)
+import RemoteData exposing (WebData)
 
 type alias Model =
+  { comments: WebData (List Comment)
+  }
+
+type alias Comment =
   { groupId : String
   , songId : String
   , body : String
   , userId: String
+  , createdOn: String
+  , id: String
   }
 
-
-init : (Model, Cmd Msg)
-init =
-  (Model "" "" "" "", Cmd.none)
+initialModel :  Model
+initialModel =
+    { comments = RemoteData.Loading
+    }

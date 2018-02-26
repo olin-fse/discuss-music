@@ -5,6 +5,15 @@ import Model exposing (..)
 import View exposing (..)
 import Update exposing (..)
 import Msg exposing (..)
+import Commands exposing (fetchComments)
+
+init: (Model, Cmd Msg)
+init =
+  let
+    model =
+      { comments = {} }
+  in
+    model ! [ fetchComments ]
 
 main: Program Never Model Msg.Msg
 main =
