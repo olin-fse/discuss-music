@@ -4,6 +4,7 @@ import RemoteData exposing (WebData)
 
 type alias Model =
   { comments: WebData (List Comment)
+  , newComment: Comment
   }
 
 type alias Comment =
@@ -18,4 +19,12 @@ type alias Comment =
 initialModel :  Model
 initialModel =
     { comments = RemoteData.Loading
+    , newComment = {
+        groupId = ""
+      , songId = ""
+      , body = ""
+      , userId = ""
+      , createdOn = ""
+      , id = ""
+      }
     }

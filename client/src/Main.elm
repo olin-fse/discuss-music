@@ -10,8 +10,7 @@ import Commands exposing (fetchComments)
 init: (Model, Cmd Msg)
 init =
   let
-    model =
-      { comments = {} }
+    model = initialModel
   in
     model ! [ fetchComments ]
 
