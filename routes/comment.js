@@ -18,6 +18,18 @@ router.post('/',  (req, res, next) => {
 });
 
 /* GET comment */
+router.get('/', (req, res, next) => {
+  db.comment.getAll()
+  .then(data => {
+    comments = data.map(comment => Comment.Mapper.dbToModel(comment));
+    res.json(comments);
+  })
+  .catch(error => {
+    res.status(500).json({error: error.message});
+  });
+});
+
+/* GET comment/:id */
 router.get('/:id', (req, res, next) => {
   db.comment.get(req.params.id)
   .then(data => {
