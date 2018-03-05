@@ -18,6 +18,14 @@ const get = id => {
   return db.one({text, values});
 }
 
+const getAll = () => {
+  const text =
+   `SELECT id, created_on, user_id, song_id, group_id, body
+    FROM comments`;
+  const values = [];
+  return db.any({text, values});
+}
+
 const remove = id => {
   const text =
    `DELETE FROM comments
@@ -29,5 +37,6 @@ const remove = id => {
 module.exports = {
   insert,
   get,
+  getAll,
   remove,
 }
