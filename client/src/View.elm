@@ -7,6 +7,7 @@ import Html.Attributes exposing (..)
 
 import Model exposing (..)
 import Msg exposing (..)
+import Comments.List exposing (..)
 
 
 view : Model -> Html Msg
@@ -52,6 +53,7 @@ view model =
               [ text "Post" ]
             ]
           ]
+          , Comments.List.view model.comments
         ]
       ]
     ]
