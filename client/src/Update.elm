@@ -46,7 +46,7 @@ update msg model =
        ( model, submitForm model.newComment ) 
 
     FormSubmitted (Ok data)->
-      ( model, Cmd.none )
+      ( { model | newComment = initialNewComment}, fetchComments )
 
     FormSubmitted (Err _)->
       ( model, Cmd.none )

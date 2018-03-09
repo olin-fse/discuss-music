@@ -48,7 +48,7 @@ list comments =
           , th [] [ text "Created On" ]
           , th [] [ text "User ID" ]
           , th [] [ text "Group ID" ]
-          , th [] [ text "Song Id" ]
+          , th [] [ text "Song ID" ]
           , th [] [ text "Body" ]
           ]
         ]

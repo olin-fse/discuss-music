@@ -11,13 +11,16 @@ type alias Model =
 initialModel :  Model
 initialModel =
     { comments = RemoteData.Loading
-    , newComment = {
-        groupId = ""
-      , songId = ""
-      , body = ""
-      , userId = ""
-      }
+    , newComment = initialNewComment
     }
+
+initialNewComment : NewComment
+initialNewComment =
+  { groupId = ""
+  , songId = ""
+  , body = ""
+  , userId = ""
+  }
 
 type alias Comment =
   { groupId : Int
