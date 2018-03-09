@@ -11,7 +11,7 @@ Create a database called muse in the PostgreSQL shell:
 CREATE ROLE muse WITH LOGIN PASSWORD '[pw here]';
 CREATE DATABASE muse;
 GRANT ALL PRIVILEGES ON DATABASE muse TO muse;
-/c muse;
+\c muse;
 ```
 
 To create tables with the schema run the follwing in the terminal:
