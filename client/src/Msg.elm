@@ -14,4 +14,3 @@ type Msg
     | OnSubmitForm
     | FormSubmitted (Result Http.Error (Dict String Int))
     | OnFetchComments (WebData (List Comment))
-    | CommentsFetched (Result Http.Error (Dict String Int))

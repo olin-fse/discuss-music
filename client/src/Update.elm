@@ -7,6 +7,9 @@ import Model exposing (..)
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
+    OnFetchComments response ->
+      ({ model | comments = response }, Cmd.none)
+
     GroupId groupId ->
       let
         oldComments = model.newComment
@@ -48,12 +51,9 @@ update msg model =
     FormSubmitted (Err _)->
       ( model, Cmd.none )
 
-    OnFetchComments response ->
-      ({ model | comments = response }, Cmd.none)
+    --CommentsFetched (Ok data)->
+    --  ( model, Cmd.none )
 
-    CommentsFetched (Ok data)->
-      ( model, Cmd.none )
-
-    CommentsFetched (Err _)->
-      ( model, Cmd.none )
+    --CommentsFetched (Err _)->
+    --  ( model, Cmd.none )
 

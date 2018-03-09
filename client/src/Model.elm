@@ -4,17 +4,9 @@ import RemoteData exposing (WebData)
 
 type alias Model =
   { comments: WebData (List Comment)
-  , newComment: Comment
+  , newComment: NewComment
   }
 
-type alias Comment =
-  { groupId : String
-  , songId : String
-  , body : String
-  , userId: String
-  , createdOn: String
-  , id: String
-  }
 
 initialModel :  Model
 initialModel =
@@ -24,7 +16,21 @@ initialModel =
       , songId = ""
       , body = ""
       , userId = ""
-      , createdOn = ""
-      , id = ""
       }
     }
+
+type alias Comment =
+  { groupId : Int
+  , songId : Int
+  , body : String
+  , userId: Int
+  , createdOn: String
+  , id: Int
+  }
+
+type alias NewComment =
+  { groupId : String
+  , songId : String
+  , body : String
+  , userId: String
+  }

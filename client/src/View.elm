@@ -7,7 +7,7 @@ import Html.Attributes exposing (..)
 
 import Model exposing (..)
 import Msg exposing (..)
-import Comments.List exposing (..)
+import Comments.List
 
 
 view : Model -> Html Msg

@@ -3,13 +3,18 @@ module Comments.List exposing (..)
 import Model exposing (..)
 import Msg exposing (..)
 import Html exposing (..)
-import Html.Attributes exposing (..)
-import RemoteData exposing (..)
+--import Html.Attributes exposing (..)
+import RemoteData exposing (WebData)
 
 view : WebData (List Comment) -> Html Msg
-view response = 
-  div [ class "content" ]
-    [ case response of
+view response =
+    div []
+        [ maybeList response
+        ]
+
+maybeList : WebData (List Comment) -> Html Msg
+maybeList response =
+    case response of
         RemoteData.NotAsked ->
             text ""
 
@@ -21,16 +26,16 @@ view response =
 
         RemoteData.Failure error ->
             text (toString error)
-    ]
+
 
 commentRow : Comment -> Html Msg
 commentRow comment = 
   tr []
-    [ td [] [ text comment.id ]
+    [ td [] [ text (toString comment.id) ]
     , td [] [ text comment.createdOn ]
-    , td [] [ text comment.userId ]
-    , td [] [ text comment.groupId ]
-    , td [] [ text comment.songId ]
+    , td [] [ text (toString comment.userId) ]
+    , td [] [ text (toString comment.groupId) ]
+    , td [] [ text (toString comment.songId) ]
     , td [] [ text comment.body ]
     ]
 
