@@ -10,10 +10,8 @@ env:
     - DB_NAME=muse_test
     - NODE_ENV=test
 
-
 services:
   - postgresql
-
 
 before_script:
   - env
