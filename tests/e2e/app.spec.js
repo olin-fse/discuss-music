@@ -1,18 +1,11 @@
+const browser = require('./browser');
+
 let validComment = {
   'userId': 1,
   'songId': 2,
   'groupId': 3,
   'body': 'This is a great song isn\'t it?',
 };
-
-function sendKeys(selector, text) {
-  browser.clearElement(selector);
-  for (let i = 0; i < text.length; i++) {
-    browser.addValue(selector, text[i])
-  }
-}
-
-browser.sendKeys = sendKeys;
 
 describe('Muse App', function() {
   beforeEach(function () {
