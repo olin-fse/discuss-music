@@ -11,6 +11,7 @@ elm-stuff
 # Logs
 logs
 *.log
+errorShots
 
 # Runtime data
 pids
