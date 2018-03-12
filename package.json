@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "concurrently \"nodemon ./bin/www\" \"cd client && elm-app start\"",
-    "postinstall": "cd client && elm-app install",
+    "postinstall": "cd client && elm-app install --yes",
     "server": "nodemon ./bin/www",
     "client": "cd client && elm-app start",
     "prod": "source ./.env prod && npm run server",
