@@ -8,7 +8,9 @@
     "server": "nodemon ./bin/www",
     "client": "cd client && elm-app start",
     "test": "NODE_ENV=test jest",
-    "e2e": "./node_modules/.bin/wdio wdio.conf.js"
+    "testserver": "NODE_ENV=test jest",
+    "e2e": "./node_modules/.bin/wdio wdio.conf.js",
+    "build": "cd client && elm-app build"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
