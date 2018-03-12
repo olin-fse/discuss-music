@@ -1,11 +1,18 @@
-const jasmine = require('jasmine');
-
 let validComment = {
   'userId': 1,
   'songId': 2,
   'groupId': 3,
-  'body': 'abc',
+  'body': 'This is a great song isn\'t it?',
 };
+
+function sendKeys(selector, text) {
+  browser.clearElement(selector);
+  for (let i = 0; i < text.length; i++) {
+    browser.addValue(selector, text[i])
+  }
+}
+
+browser.sendKeys = sendKeys;
 
 describe('Muse App', function() {
   beforeEach(function () {
@@ -20,7 +27,7 @@ describe('Muse App', function() {
     browser.setValue('input[placeholder="userId"]', validComment.userId);
     browser.setValue('input[placeholder="groupId"]', validComment.groupId);
     browser.setValue('input[placeholder="songId"]', validComment.songId);
-    browser.setValue('input[placeholder="body"]', validComment.body);
+    browser.sendKeys('input[placeholder="body"]', validComment.body);
     browser.click('button=Post');
 
     // wait for userId input to be cleared
