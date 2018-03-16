@@ -8,7 +8,7 @@ type alias Model =
   }
 
 
-initialModel :  Model
+initialModel : Model
 initialModel =
     { comments = RemoteData.Loading
     , newComment = initialNewComment

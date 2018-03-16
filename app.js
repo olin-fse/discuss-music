@@ -25,7 +25,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/', index);
+if (process.env.NODE_ENV === 'prod') {
+  app.use(express.static('./client/build'));
+}
+
+// app.use('/', index);
 app.use('/comment', comment)
 
 // catch 404 and forward to error handler
