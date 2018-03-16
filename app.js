@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var pgp = require('pg-promise')();
 
 var app = express();
 
@@ -45,5 +46,13 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.json({'error':'error'});
 });
+
+cleanup = () => {
+  pgp.end();
+  process.exit(0);
+};
+
+process.on('SIGINT', cleanup);
+process.on('SIGTERM', cleanup);
 
 module.exports = app;
