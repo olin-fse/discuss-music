@@ -1,4 +1,4 @@
 module Env exposing (..)
 
 apiUrl : String
-apiUrl = 
+apiUrl = "http://localhost:3001"
