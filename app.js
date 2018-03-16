@@ -5,9 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var comment = require('./routes/comment');
-
 var app = express();
 
 // uncomment after placing your favicon in /public
@@ -29,8 +26,7 @@ if (process.env.NODE_ENV === 'prod') {
   app.use(express.static('./client/build'));
 }
 
-// app.use('/', index);
-app.use('/comment', comment)
+app.use('/comment', require('./routes/comment'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
