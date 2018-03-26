@@ -4,11 +4,13 @@ node_js:
 
 env:
   global:
-    - DB_USER=muse
+    - NODE_ENV=test
     - PGPASSWORD=af2018
+    - DB_USER=muse
     - DB_PASS=af2018
     - DB_NAME=muse_test
-    - NODE_ENV=test
+    - DB_HOST=localhost
+    - DB_PORT=5432
 
 services:
   - postgresql
@@ -20,3 +22,6 @@ before_script:
   - psql -c "ALTER ROLE muse WITH LOGIN;" -U postgres
   - psql -c "GRANT ALL PRIVILEGES ON DATABASE muse_test TO muse;" -U postgres
   - psql -d muse_test -U muse -f schema.sql;
+
+script:
+  - jest
