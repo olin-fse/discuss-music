@@ -18,7 +18,7 @@ To create tables with the schema run the follwing in the terminal:
 `psql -d muse -U muse -f schema.sql`
 
 ## Running the app
-First, install dependencies by running `npm install` in the project's root directory. Then, copy the `.env.template` file and rename the copied file to `.env`. Fill in the information to match what was set up in Database Setup. Set the dev environment variables by running `source ./.env`.
+First, install dependencies by running `npm install` in the project's root directory. Then, copy the `.env.template` file and rename the copied file to `.env`. Fill in the database name, username, and password as you set up in Database Setup.
 
 To start the app, run `npm start`. The client will be running on port `3000` and the server will be running on port `3001`. Alternatively, the server and client can be started separately, using `npm run server` and `npm run client`, respectively.
 

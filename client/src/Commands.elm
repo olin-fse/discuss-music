@@ -8,16 +8,15 @@ import Json.Encode as Encode
 import Json.Decode.Pipeline exposing (decode, required)
 import Dict exposing (Dict)
 import RemoteData exposing (..)
-import Env exposing (apiUrl)
 
 
 postCommentsUrl : String
 postCommentsUrl =
-  apiUrl ++ "/comment"
+  "http://localhost:3001/comment"
 
 fetchCommentsUrl : String
 fetchCommentsUrl =
-  apiUrl ++ "/comment"
+  "http://localhost:3001/comment"
 
 formEncoder : NewComment -> Encode.Value
 formEncoder comment =
@@ -63,3 +62,4 @@ fetchComments =
     Http.get fetchCommentsUrl commentsDecoder
       |> RemoteData.sendRequest 
       |> Cmd.map OnFetchComments
+
