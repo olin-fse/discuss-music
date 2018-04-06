@@ -9,7 +9,7 @@ let validComment = {
 
 describe('Muse App', function() {
   beforeEach(function () {
-    browser.url('http://localhost:3000');
+    browser.url('http://localhost:3001');
   });
 
   it('should successfully render the root div', async function() {
