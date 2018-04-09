@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+require('dotenv').config();
 
 var app = express();
 
@@ -22,7 +23,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-if (process.env.NODE_ENV === 'prod') {
+if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV ==='test') {
   app.use(express.static('./client/build'));
 }
 
