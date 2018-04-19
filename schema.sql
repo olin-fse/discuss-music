@@ -1,8 +1,15 @@
+CREATE ROLE muse WITH LOGIN PASSWORD '[pw here]';
+CREATE DATABASE muse;
+GRANT ALL PRIVILEGES ON DATABASE muse TO muse;
+\c muse;
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   name VARCHAR
 );
+
+ALTER TABLE users OWNER TO muse;
 
 CREATE TABLE groups (
   id SERIAL PRIMARY KEY,
@@ -10,12 +17,17 @@ CREATE TABLE groups (
   name VARCHAR
 );
 
+ALTER TABLE groups OWNER TO muse;
+
+
 CREATE TABLE groupings (
   created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   user_id INT,
   group_id INT,
   PRIMARY KEY (user_id, group_id)
 );
+
+ALTER TABLE groupings OWNER TO muse;
 
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
@@ -26,6 +38,8 @@ CREATE TABLE comments (
   body VARCHAR
 );
 
+ALTER TABLE comments OWNER TO muse;
+
 CREATE TABLE songs (
   id SERIAL PRIMARY KEY,
   group_id INT NOT NULL,
@@ -34,3 +48,5 @@ CREATE TABLE songs (
   length INT NOT NULL,
   name VARCHAR
 );
+
+ALTER TABLE songs OWNER TO muse;
